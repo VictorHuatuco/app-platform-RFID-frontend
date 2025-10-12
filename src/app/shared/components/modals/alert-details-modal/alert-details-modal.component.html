@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <div>
+    <mat-icon class="modal-close-icon" (click)="close()">close</mat-icon>
+  </div>
+</div>
+<div mat-dialog-content>
+  <div class="content-detail">
+    <div>
+      <img [src]="data.image" alt="Imagen" class="modal-image">
+    </div>
+    <div class="content-detail-text">
+      <ul>
+        <li><b>Fecha Creación </b><br> {{data.createdAt}}</li>
+        <li><b>Máquina: </b><br> {{data.machine}}</li>
+        <li><b>Tipo Moneda: </b><br> {{data.coinType}}</li>
+        <li><b>Tipo Error: </b><br> {{data.cameraAlertType}}</li>
+      </ul>
+      <div class="download-button">
+        <a [href]="data.image" download="imagen_alerta.jpg">
+          <button mat-raised-button color="primary">Descargar Imagen</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

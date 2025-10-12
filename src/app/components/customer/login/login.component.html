@@ -1,0 +1,103 @@
+<div class="bg-container"></div>
+<div class="login-container" [ngClass]="{ 'modal-active': showModal }">
+  <mat-card class="login-card">
+    <!-- vista principal para login -->
+    <div *ngIf="showLogin">
+      <div class="login-header">
+        <div id="customer-logo-text">
+          <img src="assets/img/logo-BriQ.png" alt="Logo" class="logo" />
+          <h1 class="title-image">Customer</h1>
+        </div>
+      </div>
+      <mat-card-content>
+        <div class="login-form">
+          <form [formGroup]="loginForm">
+            <h1>Inicia sesión</h1>
+            <label for="usuario">Usuario</label>
+            <input matInput type="text" id="username" formControlName="username" />
+            <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+              El Usuario es obligatorio
+            </div>
+
+            <label for="password">Contraseña</label>
+            <input matInput type="password" id="password" formControlName="password" />
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+              La contraseña es obligatoria
+            </div>
+
+            <button
+              type="submit"
+              mat-raised-button
+              color="primary"
+              (click)="login()"
+            >
+              Ingresar
+            </button>
+          </form>
+
+          <div class="password-recovery-option">
+            <p>Olvidaste tu contraseña?</p>
+            <a href="#" (click)="handlePasswordRecovery($event)">
+              Haz click aquí
+            </a>
+          </div>
+        </div>
+      </mat-card-content>
+    </div>
+    <!-- vista restaurar contraseña -->
+    <mat-card-content *ngIf="showRecovery">
+      <div class="login-form">
+        <h1 style="margin-bottom: 30px">¿Olvidaste tu contraseña?</h1>
+        <div class="password-recovery-form">
+          <p style="margin-bottom: 20px">
+            Escribe tu correo corporativo para generarte una nueva contraseña.
+          </p>
+    
+          <!-- Agregamos ngModel para capturar el valor -->
+          <input 
+            type="text" 
+            placeholder="Correo electrónico" 
+            [(ngModel)]="recoveryEmail" 
+            name="recoveryEmail"
+          />
+    
+    
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            (click)="handleSendRecoveryMail()"
+          >
+            Enviar contraseña
+          </button>
+
+          <br>
+          <div class="password-recovery-option">
+            <p>Iniciar sesión, <a href="#" (click)="handleReturnToLogin($event)">
+              Haz click aquí
+            </a></p>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    
+  </mat-card>
+
+  <mat-card class="login-card modal-content" *ngIf="showModal">
+    <!-- pop up confirmar envio de correo para cambio de contraseña -->
+    <mat-card-content>
+      <div class="password-recovery-modal">
+        <h1>Tu contraseña ha sido restablecida</h1>
+        <p>Revisa tu correo electrónico para revisar tu nueva contraseña.</p>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="handleConfirm()"
+        >
+          Confirmar
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

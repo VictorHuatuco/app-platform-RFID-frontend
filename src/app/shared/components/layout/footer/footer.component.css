@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+  z-index:2;
+  background-color: #090947 !important;
+  color: white !important;
+}
+
+.footer-logo {
+  height: 32px; /* Ajusta la altura de la imagen del logo según sea necesario */
+}
+
+.spacer {
+  flex: 1;
+}

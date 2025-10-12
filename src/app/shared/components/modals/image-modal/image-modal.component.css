@@ -1,0 +1,16 @@
+.modal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  right: 0;
+  color: white;
+}

@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <!-- <app-navbar class="navbar" (toggleSidenav)="toggleSidenav()"></app-navbar>
+  <div
+    class="overlay"
+    *ngIf="isSidenavOpen && isMobileView"
+    (click)="toggleSidenav()"
+  ></div> -->
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" [class.collapsed]="!isSidenavOpen">
+      <div class="logo">
+        <img
+          [src]="
+            isSidenavOpen ? 'assets/img/logo.png' : 'assets/img/logo-short.png'
+          "
+          [alt]="isSidenavOpen ? 'logo' : 'logo-pequeño'"
+        />
+      </div>
+      <nav class="sidebar-items">
+        <a
+          [routerLink]="item.route"
+          (click)="onMenuItemClick(item.route!)"
+          *ngFor="let item of menuItems"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span *ngIf="isSidenavOpen">{{ item.name }}</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="main-content">
+      <app-navbar class="navbar" (toggleSidenav)="toggleSidenav()"></app-navbar>
+      <div class="content">
+        <router-outlet (activate)="onActivate()"></router-outlet>
+      </div>
+    </main>
+  </div>
+
+  <!--<app-footer></app-footer>-->
+</div>

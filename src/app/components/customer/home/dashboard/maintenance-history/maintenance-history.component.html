@@ -1,0 +1,78 @@
+<div class="general-container">
+  <h6>Historial de mantenimiento</h6>
+  <p class="subtitle">Control y monitoreo de candados de bloqueo activos</p>
+
+  <!-- Filtro -->
+  <div class="dropdowns-wrapper">
+    <app-dropdown
+      [dropdownInfo]="bayDropdrownInfo"
+      (emitSelectValue)="onBayValueReceived($event)"
+      class="dropdown"
+    ></app-dropdown>
+    <app-dropdown
+      [dropdownInfo]="dateDropdrownInfo"
+      (emitSelectValue)="onDateValueReceived($event)"
+      class="dropdown"
+    ></app-dropdown>
+    <button class="btn primary-btn" (click)="handleFilterInformation()">
+      Filtrar
+    </button>
+  </div>
+
+  <!-- grid de mantenimientos -->
+  <div class="cards-grid">
+    <div class="card maintenance-card" *ngFor="let item of maintenanceList">
+      <div>
+        <p class="title-card">{{ item.bayName | uppercase }}</p>
+        <div class="content-card">
+          <div class="item-card">
+            <mat-icon>wifi_tethering</mat-icon>
+            <div>
+              <span class="label-card">Nombre:</span>
+              <span class="value-card">
+                {{ item.maintenanceName }}
+              </span>
+            </div>
+            <p></p>
+          </div>
+          <div class="item-card">
+            <mat-icon>supervisor_account</mat-icon>
+            <div>
+              <span class="label-card">Cantidad de usuarios:</span
+              ><span class="value-card">{{ item.users }}</span>
+            </div>
+          </div>
+
+          <div class="item-card">
+            <mat-icon>access_time</mat-icon>
+            <div>
+              <div>
+                <span class="label-card">Inicio:</span>
+                <span class="value-card">{{ item.startTime }}</span>
+              </div>
+              <div>
+                <span class="label-card">Fin:</span>
+                <span class="value-card">{{ item.endTime }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="item-card">
+            <mat-icon>notification_important</mat-icon>
+            <div>
+              <span class="label-card">Alertas:</span>
+              <span class="value-card">{{ item.alerts | titlecase }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn secondary-btn"
+          (click)="seeMaintenanceDetails(item.id)"
+        >
+          Ver detalles
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

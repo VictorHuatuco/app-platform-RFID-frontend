@@ -1,0 +1,51 @@
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
+}
+
+.user-card {
+  gap: 20px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  margin-bottom: 20px;
+  border: dashed 2px var(--primary-app-color);
+  border-radius: 15px;
+  padding: 20px 30px;
+  background-color: var(--background-app-color);
+  gap: 20px 0px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+  color: var(--primary-app-color) !important;
+}
+
+.section-subtitle {
+  margin-bottom: 10px !important;
+  padding: 10px 0px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

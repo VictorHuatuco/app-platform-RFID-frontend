@@ -1,0 +1,30 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
+
+# Publicar artefactos de compilación (opcional, si necesitas compartir el resultado)
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: 'dist' # Cambia esto según tu carpeta de salida
+    artifactName: 'drop'
+    publishLocation: 'Container'
+
+# Desplegar en Azure App Service
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'connection-briq'
+    appName: 'demo-ulima'
+    package: '$(System.DefaultWorkingDirectory)/dist' # Cambia 'dist' según tu configuración de build

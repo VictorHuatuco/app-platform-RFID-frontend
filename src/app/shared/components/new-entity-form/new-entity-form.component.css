@@ -1,0 +1,96 @@
+.form-item input {
+  border: none;
+  background: none;
+  border-bottom: solid 1px;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+  outline: 1px solid;
+  border-radius: 8px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* grid-template-columns: repeat(4, 1fr); */
+  max-width: 100%;
+  gap: 20px 50px;
+  box-sizing: border-box;
+}
+
+.form-item input.is-invalid {
+  border-color: red;
+  color: red;
+}
+
+.error-messages {
+  color: red;
+  font-size: 0.7rem;
+  margin-top: 5px;
+}
+
+.error-messages div {
+  margin-bottom: 5px;
+}
+
+.form-item select option {
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+::ng-deep .ngx-dropdown-container {
+  border: none;
+  background: none !important;
+  box-shadow: none !important;
+  border-bottom: solid 1px;
+  width: 100% !important;
+}
+
+::ng-deep.ngx-dropdown-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #757575 !important;
+}
+::ng-deep .ngx-dropdown-container .ngx-dropdown-button .display-text {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.datepicker-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.flatpickr-input {
+  width: 100%;
+  padding-right: 40px; /* Espacio para el icono */
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--menu-background);
+}
+
+@media (max-width: 768px) {
+  /* form {
+    grid-template-columns: 1fr;
+  } */
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  /* form {
+    grid-template-columns: 1fr 1fr;
+  } */
+}

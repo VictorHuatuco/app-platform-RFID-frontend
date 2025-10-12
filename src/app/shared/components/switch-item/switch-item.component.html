@@ -1,0 +1,13 @@
+<label class="switch-container">
+  <span>{{ label }}</span>
+  <label class="switch">
+    <input
+      type="checkbox"
+      [id]="label + 'switch'"
+      [checked]="switchValue"
+      (change)="onSwitchChange($event)"
+      role="switch"
+    />
+    <span class="slider"></span>
+  </label>
+</label>

@@ -1,0 +1,92 @@
+.cards-bay-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.bay-card {
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px 50px 5px 50px !important;
+  border-left: solid 14px;
+}
+
+.card-textbox {
+  background-color: var(--secondary-app-color);
+  flex: 1;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.border-active {
+  border-color: var(--success-color);
+}
+
+.border-alert {
+  border-color: var(--error-color);
+}
+
+.border-inManteinance {
+  border-color: var(--alert-color);
+}
+
+.border-disconnected {
+  border-color: var(--inactive-color);
+}
+
+.bg-active {
+  background-color: var(--success-color);
+}
+
+.bg-alert {
+  background-color: var(--error-color);
+}
+
+.bg-inManteinance {
+  background-color: var(--alert-color);
+}
+
+.bg-disconnected {
+  background-color: var(--inactive-color);
+}
+
+.card-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.icon-container {
+  background-color: var(--secondary-app-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.color-block {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.legend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 20px;
+  justify-content: end;
+}
+
+.legend-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.legend-grid p {
+  font-weight: 300;
+  margin: 0;
+}

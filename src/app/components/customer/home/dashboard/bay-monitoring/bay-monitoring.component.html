@@ -1,0 +1,57 @@
+<div class="general-container">
+  <h6>Mapa de bahías LOTO</h6>
+  <p>Vista general del estado de mantenimiento y bloqueo por bahías</p>
+
+  <!-- leyenda -->
+  <div class="legend-grid">
+    <div *ngFor="let color of colorLegend" class="legend-container">
+      <div
+        class="color-block"
+        [ngClass]="{
+          'bg-active': color.status == 'active',
+          'bg-alert': color.status == 'alert',
+          'bg-inManteinance': color.status == 'inManteinance',
+          'bg-disconnected': color.status == 'moduleDisconnected'
+        }"
+      ></div>
+      <p>{{ color.name }}</p>
+    </div>
+  </div>
+
+  <!-- Bahías -->
+  <div class="cards-bay-grid">
+    <div
+      class="card bay-card"
+      [ngClass]="{
+        'border-active': bay.status == 'active',
+        'border-alert': bay.status == 'alert',
+        'border-inManteinance': bay.status == 'inManteinance',
+        'border-disconnected': bay.status == 'moduleDisconnected'
+      }"
+      *ngFor="let bay of baysInfo"
+    >
+      <div class="card-top-section">
+        <div>
+          <p class="title-card">{{ bay.name }}</p>
+          <p class="text-card">{{ bay.code }}</p>
+        </div>
+        <div class="icon-container">
+          <mat-icon>{{ bay.icon }}</mat-icon>
+        </div>
+      </div>
+
+      <div class="card-textbox">
+        <span class="label-card">Inicio:</span
+        ><span class="value-card"> {{ bay.start_time }}</span>
+      </div>
+      <div class="card-textbox">
+        <span class="label-card">Fin:</span
+        ><span class="value-card"> {{ bay.end_time }}</span>
+      </div>
+
+      <button class="btn secondary-btn" (click)="seeMaintenanceDetails(bay.id)">
+        Detalles del mantenimiento
+      </button>
+    </div>
+  </div>
+</div>

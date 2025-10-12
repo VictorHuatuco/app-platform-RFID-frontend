@@ -1,0 +1,56 @@
+.modal-image {
+  width: 450px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.modal-close-icon{
+  color: #090947;
+}
+
+.download-button {
+  text-align: center;
+}
+
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  right: 0;
+  color: white;
+}
+
+.content-detail{
+  display: flex;
+  /*padding: 50px;*/
+}
+
+.content-detail > ul{
+  list-style: none;
+}
+
+.content-detail-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-detail-text > ul{
+  background: #090947;
+  color: white;
+  list-style-type: none;
+  padding: 10px;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.content-detail-text > ul > li{
+  margin-bottom: 12px;
+}
+

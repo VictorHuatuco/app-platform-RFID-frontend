@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Detalles del vehículo</h2>
+
+<div mat-dialog-content class="dialog-content">
+  <div class="dialog-content-images">
+    <div class="dialog-content-image">
+      <img [src]="data.image1Url" alt="Imagen 1" class="dialog-image" />
+      <span class="dialog-text">Placa del automóvil</span>
+    </div>
+    <div class="dialog-content-image">
+      <img [src]="data.image2Url" alt="Imagen 2" class="dialog-image" />
+      <span class="dialog-text">Placa en cámaras</span>
+    </div>
+  </div>
+
+  <p>{{ data.description }}</p>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cerrar</button>
+</div>

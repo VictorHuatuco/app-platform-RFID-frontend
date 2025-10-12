@@ -1,0 +1,18 @@
+<div class="top-section__media">
+  <video
+    [src]="videoURL"
+    autoplay
+    (error)="handleVideoError($event)"
+    *ngIf="mediaType === 'video' && showVideoFallback === false"
+  >
+    Tu navegador no admite el elemento <code>video</code>.
+  </video>
+
+  <div
+    class="fallback fallback__container"
+    *ngIf="showVideoFallback && mediaType === 'video'"
+  >
+    <p class="fallback__text">Video no disponible</p>
+  </div>
+  <img [src]="imageURL" alt="" *ngIf="mediaType === 'image'" />
+</div>

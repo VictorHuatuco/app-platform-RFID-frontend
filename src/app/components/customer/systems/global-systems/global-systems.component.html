@@ -1,0 +1,23 @@
+<div class="bg-container"></div>
+<div class="main-container">
+  <div class="grid-global-systems">
+    <mat-card
+      *ngFor="let item of globalSystems"
+      [ngClass]="{ inactive: item.inactive }"
+    >
+      <mat-card-content>
+        <img [src]="item.logo" [alt]="item.name" />
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-button
+          class="access-btn"
+          [disabled]="item.inactive"
+          (click)="redirectToSubsystems(item.name)"
+        >
+          Ingresar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

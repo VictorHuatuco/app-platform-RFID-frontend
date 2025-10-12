@@ -1,0 +1,73 @@
+<div class="general-container">
+  <h6>Detalle del mantenimiento</h6>
+  <p class="subtitle">
+    Detalle preciso del mantenimiento de la {{ maintenance.bayName }}
+  </p>
+
+  <div>
+    <!-- general -->
+    <p class="section-subtitle">Detalles generales</p>
+    <div class="card details-grid">
+      <div class="detail-item">
+        <mat-icon class="icon">wifi_tethering</mat-icon>
+        <div>
+          <p class="label-card">Nombre</p>
+          <p class="value-card">
+            {{ maintenance.maintenanceName }}
+          </p>
+        </div>
+      </div>
+      <div class="detail-item">
+        <mat-icon class="icon">access_time</mat-icon>
+        <div>
+          <p class="label-card">Inicio</p>
+          <p class="value-card">{{ maintenance.startTime }}</p>
+        </div>
+      </div>
+      <div class="detail-item">
+        <mat-icon class="icon">access_time</mat-icon>
+        <div>
+          <p class="label-card">Fin</p>
+          <p class="value-card">{{ maintenance.endTime }}</p>
+        </div>
+      </div>
+      <div class="detail-item">
+        <mat-icon class="icon">notification_important</mat-icon>
+        <div>
+          <p class="label-card">Alertas</p>
+          <p class="value-card">{{ maintenance.alerts }}</p>
+        </div>
+      </div>
+      <div class="detail-item">
+        <mat-icon class="icon">supervisor_account</mat-icon>
+        <div>
+          <p class="label-card">Usuarios</p>
+          <p class="value-card">{{ maintenance.cantUsers }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- usuarios -->
+    <p class="section-subtitle">Detalles de usuarios</p>
+    <div class="users-grid">
+      <div class="card user-card" *ngFor="let user of maintenance.usersDetails">
+        <img src="assets/img/avatar.png" alt="" class="avatar" />
+        <div class="user-info">
+          <p class="title-card">{{ user.name }} {{ user.lastName }}</p>
+          <div>
+            <span class="label-card">Código:</span>
+            <span class="value-card">{{ user.email }}</span>
+          </div>
+          <div>
+            <span class="label-card">Inicio:</span>
+            <span class="value-card">{{ user.initTime }}</span>
+          </div>
+          <div>
+            <span class="label-card">Salida:</span>
+            <span class="value-card"> {{ user.endTime }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

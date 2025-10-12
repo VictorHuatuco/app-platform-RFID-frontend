@@ -1,0 +1,24 @@
+.card {
+  flex-direction: column !important;
+}
+
+.card-head {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.card-head > div {
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.green-theme {
+  background-color: var(--success-color);
+  color: var(--primary-text-light-color);
+}
+
+.red-theme {
+  background-color: var(--error-color);
+  color: var(--primary-text-light-color);
+}

@@ -1,0 +1,15 @@
+<div class="bg-container"></div>
+<div class="body-container">
+  <object
+    data="assets/LogoBRIQanimado.svg"
+    type="image/svg+xml"
+    class="animated-logo"
+  ></object>
+  <button
+    [style.visibility]="animationFinished ? 'visible' : 'hidden'"
+    class="redirect-btn"
+    (click)="redirectToLogin()"
+  >
+    Ingresar
+  </button>
+</div>

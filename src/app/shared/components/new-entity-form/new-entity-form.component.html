@@ -1,0 +1,51 @@
+<form [formGroup]="entityForm">
+  <div *ngFor="let field of fields" class="form-item">
+    <label style="font-size: 12px"
+      >{{ field.label }} <span *ngIf="isRequired(field.model)">*</span>
+    </label>
+
+    <input
+      *ngIf="field.type != 'select' && field.type != 'date'"
+      [formControlName]="field.model"
+      [name]="field.model"
+      [type]="field.type"
+      [ngClass]="{
+        'is-invalid':
+          entityForm.get(field.model)?.invalid &&
+          entityForm.get(field.model)?.touched,
+        'is-valid':
+          entityForm.get(field.model)?.valid &&
+          entityForm.get(field.model)?.touched
+      }"
+    />
+    <ngx-select-dropdown
+      *ngIf="field.type === 'select'"
+      [formControlName]="field.model"
+      [config]="field.dropdownConfig"
+      [options]="field.options"
+      (change)="onSelectChange($event, field.model)"
+    >
+    </ngx-select-dropdown>
+
+    <div class="datepicker-wrapper" *ngIf="field.type === 'date'">
+      <input
+        type="text"
+        #datepicker
+        [attr.data-field]="field.model"
+        [placeholder]="field.placeholder"
+        class="flatpickr-input"
+      />
+      <i class="material-icons calendar-icon">calendar_today</i>
+    </div>
+
+    <ng-container *ngIf="entityForm.get(field.model) as control">
+      <div *ngIf="control.invalid && control.touched" class="error-messages">
+        <div *ngIf="control.hasError('required')">
+          Este campo es obligatorio.
+        </div>
+        <div *ngIf="control.hasError('minlength')">El valor es muy corto.</div>
+        <div *ngIf="control.hasError('pattern')">Formato inválido.</div>
+      </div>
+    </ng-container>
+  </div>
+</form>

@@ -1,0 +1,346 @@
+/* login.component.css */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: none;
+  position: relative;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.password-recovery-form {
+  width: 58%;
+}
+
+.password-recovery-form p {
+  line-height: 1;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.password-recovery-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.password-recovery-modal h1 {
+  color: #003443;
+  font-size: 26px;
+  font-weight: 500;
+  width: 100%;
+  margin-bottom: 0px;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.password-recovery-modal p {
+  font-size: 18px;
+  font-weight: 300;
+  width: 82%;
+}
+
+.password-recovery-modal button {
+  width: 50%;
+}
+
+.password-recovery-form a {
+  text-decoration: none;
+  color: black;
+}
+
+.login-form h1,
+#customer-logo-text h1 {
+  font-size: 30px;
+  font-family: inherit;
+  font-weight: 300;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.login-form input,
+.login-form button {
+  width: 100%;
+}
+
+button {
+  margin-top: 5px;
+  height: auto;
+  font-weight: 380;
+  font-size: 90%;
+  padding: 6px;
+  border-radius: 11px;
+}
+
+.login-form input {
+  background-color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  height: 28px;
+  margin-bottom: 12px;
+  border-radius: 11px;
+}
+
+.login-form label {
+  font-size: 14px;
+}
+
+.login-card {
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 450px;
+  margin: 20px;
+}
+
+.login-header {
+  /* text-align: center; */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#customer-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+#customer-logo-text h1 {
+  width: 150px;
+  margin-bottom: 0px;
+  text-align: end;
+  padding-right: 3px;
+}
+
+.logo {
+  max-width: 300px;
+  transition: max-width 0.3s ease-in-out;
+}
+
+.password-recovery-option {
+  margin-top: 20px;
+  line-height: 1;
+}
+
+.password-recovery-option p,
+.password-recovery-option a {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.password-recovery-option a {
+  color: #003443;
+}
+
+.platform {
+  line-height: normal;
+  margin-bottom: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.platform-name {
+  font-weight: bold;
+  line-height: normal;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.microsoft-login-button {
+  width: 100%;
+  background-color: #0078d4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: none;
+  padding: 10px 0;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.microsoft-login-button:hover {
+  background-color: #005a9e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-active::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 3;
+}
+
+/* Evita scroll cuando modal está activo */
+.modal-active {
+  overflow: hidden;
+}
+
+/* Modal centrado */
+.modal-content {
+  position: absolute;
+  background-color: white !important;
+  z-index: 999;
+  padding: 20px 0px;
+  border-radius: 10px;
+  height: auto;
+  max-width: 460px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-card,
+.modal-content,
+.logo,
+.password-recovery-form,
+.password-recovery-modal p,
+.password-recovery-modal h1,
+.password-recovery-modal button {
+  transition: all 0.3s ease-in-out;
+}
+
+.error {
+  color: red;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    margin: 20px;
+    max-width: 380px;
+  }
+  .modal-content {
+    max-width: 350px;
+  }
+  .logo {
+    max-width: 250px;
+  }
+
+  .login-form form {
+    width: 80%;
+  }
+
+  .login-form h1,
+  #customer-logo-text h1 {
+    font-size: 24px;
+  }
+
+  .login-form button {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .password-recovery-option p,
+  .password-recovery-option a {
+    font-size: 12px;
+  }
+
+  .password-recovery-form {
+    width: 90%;
+  }
+
+  .password-recovery-modal h1 {
+    font-size: 22px;
+  }
+
+  .password-recovery-modal p {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .password-recovery-modal button {
+    width: 80%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    max-width: 410px;
+  }
+  .modal-content {
+    max-width: 350px;
+    padding: 12px 0px;
+  }
+  .logo {
+    max-width: 300px;
+  }
+  .login-form h1,
+  #customer-logo-text h1 {
+    font-size: 30px;
+  }
+  .login-form form {
+    width: 60%;
+  }
+  .password-recovery-form {
+    width: 70%;
+  }
+
+  .password-recovery-modal h1 {
+    font-size: 24px;
+  }
+
+  .password-recovery-modal p {
+    font-size: 18px;
+    width: 85%;
+  }
+
+  .password-recovery-modal button {
+    width: 60%;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .login-card {
+    width: 90%;
+    max-width: 450px;
+  }
+  .modal-content {
+    max-width: 450px;
+    padding: 15px 10px;
+  }
+  .logo {
+    max-width: 300px;
+  }
+  .login-form h1,
+  #customer-logo-text h1 {
+    font-size: 30px;
+  }
+  .login-form form {
+    width: 60%;
+  }
+  .password-recovery-form {
+    width: 70%;
+  }
+
+  .password-recovery-modal h1 {
+    font-size: 24px;
+  }
+
+  .password-recovery-modal p {
+    font-size: 18px;
+    width: 85%;
+  }
+
+  .password-recovery-modal button {
+    width: 60%;
+  }
+}

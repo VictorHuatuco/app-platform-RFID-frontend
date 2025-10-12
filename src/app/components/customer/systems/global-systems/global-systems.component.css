@@ -1,0 +1,136 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  min-height: 100vh;
+}
+
+.grid-global-systems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 0px 60px;
+}
+mat-card {
+  height: 250px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+mat-card-actions {
+  width: 70%;
+}
+
+img {
+  width: 200px;
+  padding-bottom: 20px;
+}
+
+.access-btn {
+  background-color: #003443;
+  border-radius: 40px;
+  color: white !important;
+  width: 100%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.inactive {
+  position: relative;
+}
+.inactive::after {
+  content: ""; /* Requerido para que el pseudoelemento se muestre */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Capa blanca con transparencia */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* Asegura que la capa esté encima del contenido */
+}
+
+.inactive::after {
+  background-image: url("/assets/img/lock-icon.png");
+  background-size: 30px 30px; /* Ajustamos el tamaño de la imagen */
+  background-repeat: no-repeat;
+  background-position: center 14%;
+}
+/*
+@media (min-width: 768px) and (max-width: 991px) {
+  mat-card {
+    height: 250px;
+    width: 360px;
+  }
+} */
+
+@media (max-width: 991px) {
+  .grid-global-systems {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 40px;
+    width: 100%;
+  }
+  img {
+    width: 200px;
+    padding-bottom: 20px;
+  }
+  mat-card {
+    height: 250px;
+    width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-global-systems {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 40px;
+    width: 100%;
+  }
+  img {
+    width: 200px;
+    padding-bottom: 20px;
+  }
+  mat-card {
+    height: 250px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-global-systems {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 40px;
+    width: 100%;
+  }
+  img {
+    width: 150px;
+    padding-bottom: 15px;
+  }
+
+  mat-card {
+    height: 200px;
+    width: 100%;
+    padding: 30px;
+  }
+}

@@ -1,0 +1,80 @@
+.body-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.redirect-btn {
+  border-radius: 34px;
+  background-color: #003443;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: min(80%, 580px);
+  height: auto;
+  padding: 7px 0px;
+}
+
+.redirect-btn:hover {
+  background-color: #004c61;
+}
+
+.animated-logo,
+.redirect-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-logo {
+  height: auto;
+}
+
+/* pantalla pequeña */
+@media (max-width: 767px) {
+  .redirect-btn {
+    /* width: 40vw; */
+    font-size: 16px;
+    width: min(50%, 200px);
+  }
+  .animated-logo {
+    width: min(70vw, 300px);
+  }
+}
+
+/* pantalla tipo tablet */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .redirect-btn {
+    font-size: 18px;
+    width: min(40%, 250px);
+  }
+
+  .animated-logo {
+    width: min(50vw, 400px);
+  }
+}
+
+/* pantalla mediana */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .redirect-btn {
+    font-size: 24px;
+    width: min(40%, 350px);
+  }
+
+  .animated-logo {
+    width: min(48vw, 600px);
+  }
+}
+
+/* pantalla grande */
+@media (min-width: 1200px) {
+  .redirect-btn {
+    font-size: 28px;
+    width: min(30%, 600px);
+  }
+  .animated-logo {
+    width: min(42vw, 900px);
+    max-width: 1000px;
+  }
+}

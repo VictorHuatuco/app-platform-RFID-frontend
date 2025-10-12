@@ -1,0 +1,19 @@
+<div class="bg-container"></div>
+<div class="main-container">
+  <div class="grid-subsystems">
+    <mat-card
+      *ngFor="let item of tradeSystems"
+      [ngClass]="{ inactive: item.inactive }"
+    >
+      <mat-card-content>
+        <!-- <img [src]="item.logo" [alt]="item.name" /> -->
+        <span>{{ item.name }}</span>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="access-btn" (click)="redirectHome()" [disabled]="item.inactive">
+          Ingresar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

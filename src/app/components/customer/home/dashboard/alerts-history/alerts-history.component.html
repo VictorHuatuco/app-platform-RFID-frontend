@@ -1,0 +1,42 @@
+<div class="general-container">
+  <h6>Historial de alertas</h6>
+  <p class="subtitle">Control y monitoreo de candados de bloqueo activos</p>
+
+  <!-- grid de alertas -->
+  <div class="cards-grid">
+    <div class="card" *ngFor="let item of alertsList">
+      <div class="card-head">
+        <p class="title-card">{{ item.bayName | uppercase }}</p>
+        <div
+          [ngClass]="{
+            'green-theme': item.status == 'resuelto',
+            'red-theme': item.status == 'no resuelto',
+          }"
+          class="badge"
+        >
+          <span>Estado:</span>
+          <span>{{ item.status }}</span>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="item-card">
+          <mat-icon>wifi_tethering</mat-icon>
+          <div>
+            <span class="label-card">Nombre de mantenimiento:</span>
+            <span class="value-card">
+              {{ item.maintenanceName }}
+            </span>
+          </div>
+        </div>
+        <div class="item-card">
+          <mat-icon>supervisor_account</mat-icon>
+          <div>
+            <span class="label-card">Personal involucrado:</span
+            ><span class="value-card">{{ item.user }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
