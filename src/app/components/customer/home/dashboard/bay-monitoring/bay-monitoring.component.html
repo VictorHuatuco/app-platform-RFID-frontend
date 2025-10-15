@@ -8,7 +8,7 @@
       <div
         class="color-block"
         [ngClass]="{
-          'bg-active': color.status == 'active',
+          'bg-active': color.status == 'available',
           'bg-alert': color.status == 'alert',
           'bg-inManteinance': color.status == 'inManteinance',
           'bg-disconnected': color.status == 'moduleDisconnected'
@@ -23,7 +23,7 @@
     <div
       class="card bay-card"
       [ngClass]="{
-        'border-active': bay.status == 'active',
+        'border-active': bay.status == 'available',
         'border-alert': bay.status == 'alert',
         'border-inManteinance': bay.status == 'inManteinance',
         'border-disconnected': bay.status == 'moduleDisconnected'

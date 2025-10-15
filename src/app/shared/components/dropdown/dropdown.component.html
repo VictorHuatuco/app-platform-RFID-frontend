@@ -3,5 +3,17 @@
   [options]="dropdownInfo.options"
   [(ngModel)]="selectedValue"
   (change)="onEmitSelectValue(selectedValue)"
+  *ngIf="dropdownInfo.type != 'date'"
 >
 </ngx-select-dropdown>
+
+<div class="datepicker-wrapper" *ngIf="dropdownInfo.type === 'date'">
+  <input
+    type="text"
+    #datepicker
+    [attr.data-field]="dropdownInfo.model"
+    [placeholder]="dropdownInfo.placeholder"
+    class="flatpickr-input"
+  />
+  <i class="material-icons calendar-icon">calendar_today</i>
+</div>

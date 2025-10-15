@@ -17,7 +17,7 @@ export class BayMonitoringComponent {
   public colorLegend: any = [
     {
       name: 'Disponible',
-      status: 'active',
+      status: 'available',
     },
     {
       name: 'Mantenimiento activo',
@@ -52,7 +52,7 @@ export class BayMonitoringComponent {
   ngOnInit() {
     this.bayService.getBays().subscribe({
       next: (response) => {
-        this.baysInfo = response;
+        this.baysInfo = response.data;
         console.log(response);
       },
       error: (e) => {

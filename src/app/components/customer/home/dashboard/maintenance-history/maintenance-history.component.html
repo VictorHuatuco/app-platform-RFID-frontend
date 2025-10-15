@@ -6,21 +6,31 @@
   <div class="dropdowns-wrapper">
     <app-dropdown
       [dropdownInfo]="bayDropdrownInfo"
-      (emitSelectValue)="onBayValueReceived($event)"
+      (emitSelectValue)="onSelectedDropdownValue('selectedBay', $event)"
       class="dropdown"
     ></app-dropdown>
     <app-dropdown
-      [dropdownInfo]="dateDropdrownInfo"
-      (emitSelectValue)="onDateValueReceived($event)"
+      [dropdownInfo]="initDateDropdrownInfo"
+      (emitSelectValue)="onSelectedDropdownValue('selectedInitDate', $event)"
       class="dropdown"
     ></app-dropdown>
-    <button class="btn primary-btn" (click)="handleFilterInformation()">
-      Filtrar
-    </button>
+    <app-dropdown
+      [dropdownInfo]="endDateDropdrownInfo"
+      (emitSelectValue)="onSelectedDropdownValue('selectedEndDate', $event)"
+      class="dropdown"
+    ></app-dropdown>
+    <div class="buttons-wrapper">
+      <button class="btn primary-btn" (click)="handleFilterInformation()">
+        Filtrar
+      </button>
+      <button class="btn secondary-btn" (click)="handleClearFilters()">
+        Limpiar
+      </button>
+    </div>
   </div>
 
   <!-- grid de mantenimientos -->
-  <div class="cards-grid">
+  <div class="cards-grid" *ngIf="maintenanceList.length != 0; else noData">
     <div class="card maintenance-card" *ngFor="let item of maintenanceList">
       <div>
         <p class="title-card">{{ item.bayName | uppercase }}</p>
@@ -75,4 +85,6 @@
       </div>
     </div>
   </div>
+
+  <ng-template #noData> No hay mantenimientos que mostrar </ng-template>
 </div>

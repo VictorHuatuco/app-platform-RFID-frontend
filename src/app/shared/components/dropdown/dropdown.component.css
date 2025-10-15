@@ -24,3 +24,40 @@
   overflow: hidden !important;
   text-overflow: ellipsis !important;
 }
+
+.datepicker-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.flatpickr-input {
+  width: 100%;
+  padding-right: 40px; /* Espacio para el icono */
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--primary-text-color);
+}
+
+.datepicker-wrapper input {
+  /* border: none;
+  background: none;
+  border-bottom: solid 1px;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box; */
+  border: solid 1px var(--primary-app-color) !important;
+  background: var(--secondary-app-color) !important;
+  height: 40px;
+  border-radius: 10px !important;
+  padding: 5px 20px !important;
+  color: var(--secondary-text-color) !important;
+  box-sizing: border-box;
+}

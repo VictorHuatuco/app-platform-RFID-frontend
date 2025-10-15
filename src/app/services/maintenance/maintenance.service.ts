@@ -23,30 +23,31 @@ export class MaintenanceService {
     return this.httpClient.get<any>(`${this.REQUEST_URL}/${maintenanceId}`);
   }
 
-  // matenimientos de una bahia
-  getMaintenanceByBayId(bayId: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.REQUEST_URL}`, {
-      params: { bay_id: bayId },
-    });
-  }
-  // mantenimientos entre fechas
+  // // matenimientos de una bahia
+  // getMaintenanceByBayId(bayId: number): Observable<any> {
+  //   return this.httpClient.get<any>(`${this.REQUEST_URL}`, {
+  //     params: { bay_id: bayId },
+  //   });
+  // }
+  // obtener mantenimientos entre fechas
   getMaintenancesPerDate(startDate: string, endDate: string): Observable<any> {
     return this.httpClient.get<any>(`${this.REQUEST_URL}`, {
       params: { start_date: startDate, end_date: endDate },
     });
   }
 
-  // obtener solo mantenimientos activos
-  getActiveMaintenances(status: string): Observable<any> {
-    return this.httpClient.get<any>(`${this.REQUEST_URL}`, {
-      params: { status: status },
-    });
-  }
+  // obtener matenimientos por bahía y fechas
+  getFilteredMaintenances(
+    bayId: number,
+    startDate: string,
+    endDate: string
+  ): Observable<any> {
+    const params: any = {};
 
-  // obtener matenimientos activos y por bahia
-  getFilteredMaintenances(status: string, bayId: number): Observable<any> {
-    return this.httpClient.get<any>(`${this.REQUEST_URL}`, {
-      params: { bay_id: bayId, status: status },
-    });
+    if (bayId !== 0) params.bay_id = bayId;
+    if (startDate !== '') params.start_date = startDate;
+    if (endDate !== '') params.end_date = endDate;
+
+    return this.httpClient.get<any>(`${this.REQUEST_URL}`, { params });
   }
 }

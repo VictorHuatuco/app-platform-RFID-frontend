@@ -25,7 +25,7 @@ export class MaintenanceDetailComponent {
 
     this.maintenanceService.getMaintenanceById(this.maintenanceId).subscribe({
       next: (response) => {
-        this.maintenance = response;
+        this.maintenance = response.data;
         console.log(response);
       },
       error: (e) => {

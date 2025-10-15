@@ -1,19 +1,25 @@
 import { CommonModule } from '@angular/common';
 import {
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnInit,
   Output,
+  QueryList,
   SimpleChanges,
+  ViewChildren,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import flatpickr from 'flatpickr';
+import { Spanish } from 'flatpickr/dist/l10n/es';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 
 export interface Dropdown {
   label: string;
   model: string;
   type: string;
+  placeholder?: string;
   options: DropdownOption[];
 }
 
@@ -33,6 +39,9 @@ export class DropdownComponent {
   @Input() public selectedValue: any;
   @Input() public dropdownInfo: Dropdown;
   @Output() public emitSelectValue: EventEmitter<any> = new EventEmitter();
+
+  @ViewChildren('datepicker') datepickers!: QueryList<ElementRef>;
+
   public dropdownConfig = {
     displayKey: 'label',
     valueKey: 'value',
@@ -79,5 +88,33 @@ export class DropdownComponent {
 */
     //console.log('📤 Emisión única de valor:', value);
     this.emitSelectValue.emit(value);
+  }
+
+  // ngAfterViewInit(): void {
+  //   this.datePickerInitialization();
+  // }
+
+  ngAfterViewInit(): void {
+    this.datePickerInitialization();
+    this.datepickers.changes.subscribe(() => {
+      this.datePickerInitialization();
+    });
+  }
+
+  datePickerInitialization() {
+    this.datepickers.forEach((dp) => {
+      const fieldModel = dp.nativeElement.getAttribute('data-field');
+      flatpickr(dp.nativeElement, {
+        locale: Spanish,
+        dateFormat: 'd/m/Y',
+        disableMobile: true,
+        onChange: (selectedDates, dateStr) => {
+          if (fieldModel) {
+            // this.entityForm.get(fieldModel)?.setValue(dateStr);
+            this.emitSelectValue.emit({ field: fieldModel, value: dateStr });
+          }
+        },
+      });
+    });
   }
 }
