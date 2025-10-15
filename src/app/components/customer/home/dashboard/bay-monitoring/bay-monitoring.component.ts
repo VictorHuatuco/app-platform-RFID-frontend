@@ -40,7 +40,7 @@ export class BayMonitoringComponent {
       next: (response) => {
         console.log(response);
         this.router.navigate([
-          `/home/maintenance-history/maintenance/${response.id}`,
+          `/home/maintenance-history/maintenance/${response.data.id}`,
         ]);
       },
       error: (e) => {
